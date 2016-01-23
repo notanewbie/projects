@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Ticker Test</title>
+        <style type="text/css">
+            .stick{
+                position:absolute;
+                bottom:0px;
+            }
+        </style>
+        <script type="text/javascript">
+            function move() {
+                document.body.ticker.direction="up"
+                document.body.ticker.loop="1"
+            }
+        </script>
+    </head>
+    <body>
+    <marquee class="stick" behavior="scroll" height="20" name="ticker" direction="up" scrolldelay="0.01" scrollamount="1">I stick too!<br />So do I<br /> And I<br /> And I</marquee>
+
+
+    </body>
+</html>
