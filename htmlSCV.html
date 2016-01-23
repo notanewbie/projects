@@ -1,0 +1,28 @@
+<script type="text/javascript">
+document.domain = "www.google.com"
+function loadFile(fileName) {
+	var txtFile;
+        if (window.XMLHttpRequest)
+	  {// code for IE7+, Firefox, Chrome, Opera, Safari
+	  txtFile = new XMLHttpRequest();
+	  }
+	else
+	  {// code for IE6, IE5
+	  txtFile = new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	txtFile.open("GET",fileName,true);
+	txtFile.send();
+	var txtDoc=txtFile.responseText;
+	alert(txtDoc)
+	return txtDoc
+}
+
+function ViewCode() {
+	var Pre = document.getElementById("pre")
+	var Text = document.getElementById("url")
+	Pre.innerHTML = loadFile(Text.value)
+}
+</script>
+<html><input type="text" id="url" width="90%" height=10% value="http://tunein.com"></input>
+<input type="button" width=10% height=10% value="View Code" onclick="ViewCode()"></input>
+<xmp width=100% height=90% id="pre">Click the View Code button to get started!</xmp>
