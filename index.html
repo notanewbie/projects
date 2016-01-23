@@ -1,0 +1,147 @@
+<style type="text/css">
+#channel {
+	position: fixed;
+	top: 1%;
+	left: 0%;
+	border: 0;
+}
+#name {
+	position: fixed;
+	top: 1%;
+	left: 2%;
+	border: 0;
+}
+#frame {
+	position: absolute;
+	top: 7%;
+	left: 0%;
+}
+#navButtons {
+	position: fixed;
+	top: 0%;
+	left: 7.5%;
+}
+</style>
+<html>
+<title>WireTV - Live Streaming Television</title>
+<form>
+<input id="channel" name="channel" type="text" onkeyup="Oooh(event)" onblur="document.getElementById('channel').focus()" value="channel number" size=2 autofocus />
+</form> <input id="name" name="name" type="text" value="channel name" size=9 />
+<box id="navButtons"><a href="javascript:Up()"><img src="Media/up.png" height="1%" width="3%" /></a> <a href="javascript:Down()"><img src="Media/down.png" height="4%" width="3%" /></a><a href="?channel=0"><img src="Media/guide.jpg" height="4%" width="3%" /></a></box>
+<iframe src="welcome_mat.html" width="100%" height="93%" name="Frame" id="Frame" frameborder="0" allowfullscreen></iframe>
+<script type="text/javascript">
+Search = location.search.replace("?channel=", "");
+channel = parseInt(Search);
+channel_array = ["welcome_mat.html", "http://www.youtube.com/user/1americanews", "http://rt.com/on-air/embed/", "AFA.html", "http://www.euronews.com/news/streaming-live/#at_pco=cfd-1.0", "http://video.foxnews.com/v/video-embed.html?video_id=1241186546001&d=video.foxnews.com", "http://www.cnn.com/go/", "http://www.msnbc.com/now", "http://new.livestream.com/accounts/3428238/events/1982560/player?width=606&amp;height=341&amp;autoPlay=true&amp;mute=false", "https://secure.video.theblaze.com/enterworkflow.do?flowId=registration.migrate&forwardUrl=/schedule/index.jsp&platform=WEB", "http://www.filmon.tv/tv/channel/export?channel_id=3223&affid=7032Ul", "cbsn.html", "http://www.cnn.com/go/?stream=HLN", "http://player.cntv.cn/standard/AkamaiLive20140127.swf?v=0.1.3.6", "cnnaudio.html", "hlnaudio.html", "http://c.brightcove.com/services/viewer/federated_f9?&width=100%25&height=100%25&flashID=_content_ajam_watch&bgcolor=%23000000&autoStart=true&playerID=782520247001&playerKey=AQ~~%2CAAAAtjNgHek~%2CgY5azj3VyJhh7wuAPisKrPNfL5UIOw63AQ~~%2CAAAAtjNgHek~%2CgY5azj3VyJhh7wuAPisKrPNfL5UIOw63&isVid=true&isUI=true&dynamicStreaming=true&%40videoPlayer=4312974172001&includeAPI=true&templateReadyHandler=brightcove%5B%22templateReadyHandler_content_ajam_watch%22%5D&wmode=transparent&debuggerID=&originalTemplateReadyHandler=onTemplateReady_content_ajam_watch&startTime=1435002995968", "http://www.bbc.co.uk/radio/player/bbc_world_service", "http://www.bbc.co.uk/radio/player/bbc_world_service", "http://rt.com/on-air/rt-america-air/embed/", "http://www.weather.com/news/weather", "http://www.c-span.org/networks/?channel=c-span", "http://www.c-span.org/networks/?channel=c-span-2", "http://www.c-span.org/networks/?channel=c-span-3", "http://www.france24.com/bundles/aefbsplayer/Package20150310/video/resource/q51dfb5408f0a3/as3/player.swf", "http://embed.live.huffingtonpost.com/HPLEmbedPlayer/?segmentId=5583006f78c90abcea000336&autoPlay=true", "http://espn.go.com/livenow/mma/", "http://www.cbssports.com/video/player/embed?args=player_id%3D362295363554%26channel%3Dcollegefootball_sec_live%26pcid%3D362295363554%26width%3D640%26height%3D360%26autoplay%3Dfalse%26comp_ads_enabled%3Dfalse%26comp_ad_w%3D300%26comp_ad_h%3D60%26autoplay_live%3Dtrue%26lazy_load%3Dfalse", "http://espn.go.com/watchespn/player/_/id/", "http://livestream.com/ACCDN", "http://stream.nbcsports.com/nbcsn/", "http://player.theplatform.com/p/9KPFDC/washington/select/4SSi3rS_SqiT?autoPlay=true&parentUrl=http%3A%2F%2Fwww.csnwashington.com%2Fvideo%2Fall&params=zone%3Dcsnvideo", "http://www.btn2go.com/channel/btnlive", "http://www.foxsports.com/foxsportsgo/", "https://gamecenter.nhl.com/nhlgc/secure/gclsignup?intcmpid=nhl.com:gcl:vdsbnv&nav-video-gcl", "http://mlb.mlb.com/mediacenter/index.jsp?c_id=mlb", "http://www.nbc.com/video/full-episodes", "https://www.cbs.com/all-access/user/signup/", "http://www.fox.com/fox-now", "http://abc.go.com/watch-live", "http://www.cwtv.com/shows/", "http://video.pbs.org", "http://www.travelchannel.com/video", "http://www.hbogo.com/#home/", "https://www.netflix.com", "http://www.hulu.com", "http://www.amazon.com/b?node=2676882011", "http://uvideos.com", "http://www.mundofox.com/shows", "http://www.hallmarkchanneleverywhere.com/Home?NodeID=27", "http://www.cc.com/full-episodes", "http://www.sho.com/sho/video/full-episodes", "http://www.tntdrama.com", "http://www.trutv.com/full-episodes/index.html", "http://www.fxnetworks.com", "http://www.fxnetworks.com/network-landing/fxx/Eastern", "http://www.tlc.com/videos/", "http://www.discovery.com/videos/", "http://www.animalplanet.com/videos/", "http://video.nationalgeographic.com", "http://pbskids.org/video/", "http://www.nick.com/videos/", "http://www.nickjr.com/videos/", "http://www.teennick.com/videos", "http://www.cartoonnetwork.com/video/index.html?atclk_gn=un_video", "http://on.aol.com/originals"];
+channel_id_array = ["GUIDE", "1USA", "RT NEWS", "AFA", "EURONEWS", "FOX NEWS", "CNN", "MSNBC", "NC8", "THEBLAZE", "NEWSMAX", "CBSN", "HLN", "CCTV", "CNN AUDIO", "HLN Audio", "AJ", "BBC NEWS", "BBC USA", "RT USA", "TWC", "C-SPAN", "C-SPAN2", "C-SPAN3", "FRANCE 24", "HUFFPOST", "ESPN", "SEC CBS", "ESPN3", "ACC", "NBCS", "CCSN", "B1G", "FSG", "NHL", "MLB", "NBC", "CBS", "FOX", "ABC", "CW", "PBS", "TRAVEL", "HBO", "NETFLIX", "HULU", "AMAZON", "UNI", "MUNDO FOX", "HALLMARK", "COMEDY", "SHOWTIME", "TNT", "TRUTV", "FX", "FXX", "TLC", "DISCOVER", "ANIMAL", "NAT GEO", "PBS KIDS", "NICK", "NICK JR", "TEEN NICK", "CARTOON", "AOL ON"];
+channel_amount = channel_array.length - 1;
+if (channel.toString() == "NaN") {
+	location.search = "?channel=1";
+}
+if (channel > channel_amount) {
+	location.search = "?channel=1";
+}
+else {
+	deal = "not big";
+}
+document.getElementById("Frame").src=channel_array[channel];
+document.getElementById("channel").focus();
+document.getElementById("channel").value=channel.toString();
+document.getElementById("name").value=channel_id_array[channel];
+function Oooh(e){
+	var unicode=e.keyCode? e.keyCode : e.charCode;
+	//alert(unicode);
+	if (unicode == 38) {
+		//alert("You hit the up button.");
+		if (channel == channel_amount) {
+			channel = 0;
+			document.getElementById("Frame").src = channel_array[channel]
+			document.getElementById("channel").value=channel.toString();
+			location.search="?channel=" + channel.toString();
+		}
+		else {
+			channel = channel + 1;
+			document.getElementById("Frame").src = channel_array[channel]
+			document.getElementById("channel").value=channel.toString();
+			location.search="?channel=" + channel.toString();
+		}
+	}
+	if (unicode == 40) {
+		//alert("You hit the down button.");
+		if (channel == 0) {
+			channel = channel_amount;
+			document.getElementById("Frame").src = channel_array[channel]
+			document.getElementById("channel").value=channel.toString();
+			location.search="?channel=" + channel.toString();
+		}
+		else {
+			channel = channel - 1;
+			document.getElementById("Frame").src = channel_array[channel]
+			document.getElementById("channel").value=channel.toString();
+			location.search="?channel=" + channel.toString();
+		}
+	}
+	if (unicode == 39) {
+		//alert("You hit the up button.");
+		if (channel == channel_amount) {
+			channel = 0;
+			document.getElementById("Frame").src = channel_array[channel]
+			document.getElementById("channel").value=channel.toString();
+			location.search="?channel=" + channel.toString();
+		}
+		else {
+			channel = channel + 1;
+			document.getElementById("Frame").src = channel_array[channel]
+			document.getElementById("channel").value=channel.toString();
+			location.search="?channel=" + channel.toString();
+		}
+	}
+	if (unicode == 37) {
+		//alert("You hit the down button.");
+		if (channel == 0) {
+			channel = 1;
+			document.getElementById("Frame").src = channel_array[channel]
+			document.getElementById("channel").value=channel.toString();
+			location.search="?channel=" + channel.toString();
+		}
+		else {
+			channel = channel - 1;
+			document.getElementById("Frame").src = channel_array[channel]
+			document.getElementById("channel").value=channel.toString();
+			location.search="?channel=" + channel.toString();
+		}
+	
+	}
+
+}
+function Up() {
+	if (channel == channel_amount) {
+		channel = 0;
+		document.getElementById("Frame").src = channel_array[channel]
+		document.getElementById("channel").value=channel.toString();
+		location.search="?channel=" + channel.toString();
+	}
+	else {
+		channel = channel + 1;
+		document.getElementById("Frame").src = channel_array[channel]
+		document.getElementById("channel").value=channel.toString();
+		location.search="?channel=" + channel.toString();
+	}
+}
+function Down() {
+	if (channel == 0) {
+		channel = 1;
+		document.getElementById("Frame").src = channel_array[channel]
+		document.getElementById("channel").value=channel.toString();
+		location.search="?channel=" + channel.toString();
+	}
+	else {
+		channel = channel - 1;
+		document.getElementById("Frame").src = channel_array[channel]
+		document.getElementById("channel").value=channel.toString();
+		location.search="?channel=" + channel.toString();
+	}
+
+}
+</script>
+</html>
